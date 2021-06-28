@@ -4,8 +4,8 @@ import neopixel as np
 from random import randint
 
 def my_display(x_num=5, y_num=5, L=9, delay=200):
-    for y in range(x_num):
-        for x in range(y_num):
+    for y in range(y_num):
+        for x in range(x_num):
             display.set_pixel(x, y, L)
             sleep(delay)
     display.clear()
