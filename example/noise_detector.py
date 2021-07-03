@@ -5,12 +5,14 @@ import neopixel as np
 NUM = 24
 ring = np.NeoPixel(pin2, NUM)
 
-def noise(pin=pin1, num=NUM, max_num=1024):
+def noise(pin=pin1, num=NUM, max_num=400):
     n = pin.read_analog()
     step = max_num // NUM
     m = n // step
+    if m >= NUM:
+        m = NUM - 1
     for i in range(m):
-        ring[i] = (100, 0, 0)
+        ring[i] = (10, 0, 0)
     ring.show()
     ring.clear()
 
