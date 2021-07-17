@@ -1,5 +1,5 @@
 A2M = {
-    'A':'.-', 'B':'-...',
+        'A':'.-', 'B':'-...',
 	'C':'-.-.', 'D':'-..', 'E':'.',
 	'F':'..-.', 'G':'--.', 'H':'....',
 	'I':'..', 'J':'.---', 'K':'-.-',
@@ -16,20 +16,20 @@ A2M = {
 	'(':'-.--.', ')':'-.--.-',
 }
 
-M2A = {}
-for k,v in A2M.items():
+M2A = {} # empty dictionary
+for k,v in A2M.items(): # k='A', v='.-', M2A = {'.-': 'A'}
     if v in M2A: raise Exception("not a one to one mapping")
     M2A[v] = k
 
 def encode(s):
     assert isinstance(s, str), "input must be a string!"
-    s = s.upper()
+    s = s.upper() # 'abc' --> 'ABC'
     r = ""
-    for c in s:
+    for c in s: # '.-' -> '.- ...---' -> '.- ...--- .-.-  ...---'
         if c != " ":
             m = A2M[c]
             r = r + m + " "
-        else:
+        else: # c == " "
             r = r + " "
     return r
 
@@ -45,4 +45,5 @@ def decode(s):
     return r
     
 m = encode("ARLM")
-print(decode(m))
+print(encode('I am a teacher'))
+print(decode('.-'))
