@@ -1,7 +1,8 @@
 def T(in_range, out_range, v): 
     in_low = min(in_range)
     in_high = max(in_range)
-    assert in_low <= v <= in_high, "value not in range!" + str(in_low) + ',' + str(v)
+    msg = "value not in range: " + str(in_low) + ',' + str(in_high) + ',' + str(v)
+    assert in_low <= v <= in_high, msg
     out_first, out_second = out_range
     # input range
     input_range = in_high - in_low
